@@ -19,10 +19,13 @@ public class Hello {
             CSVReader reader = new CSVReader(new FileReader("data.csv"));
 			List<String[]> myEntries=reader.readAll();
 			for(String[] entry : myEntries){
+				for (String i : entry){
 				int nb = Integer.parseInt(entry[0]);
-				System.out.println(String.format("Nombre lu : %d", nb));
-				System.out.println(String.format("Nb max entre %d et %d est %d",myMax,nb,app.max(myMax, nb)));
-				myMax=app.max(myMax,nb);
+				System.out.println(String.format("Nombre lu : %d", Integer.parseInt(i)));
+				System.out.println(String.format("Nb max entre %d et %d est %d",myMax,Integer.parseInt(i),app.max(myMax, Integer.parseInt(i))));
+				myMax=app.max(myMax,Integer.parseInt(i));
+				}
+
 			}
 			System.out.println("le maximum est :"+myMax);
 		} catch (IOException e) {
